@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="th">
 <head>
@@ -10,7 +9,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
-/* ── RESET & VARS ── */
 :root{
   --bg:#080d1a;--sf:#0f1623;--sf2:#161f30;--sf3:#1c2840;
   --bd:#1e3354;--bd2:#243d63;
@@ -28,40 +26,24 @@
 *::-webkit-scrollbar{display:none;}
 html{height:100%;-webkit-text-size-adjust:100%;}
 body{font-family:'Sarabun',sans-serif;background:var(--bg);color:var(--tx);height:100%;font-size:17px;line-height:1.5;overflow:hidden;}
-
-/* ── APP SHELL ── */
 #app{display:flex;flex-direction:column;width:100%;height:100vh;height:100dvh;overflow:hidden;}
-
-/* TOP BAR */
 #topbar{height:calc(var(--top-h) + var(--safe-t));padding-top:var(--safe-t);background:rgba(8,13,26,.97);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--bd);display:flex;align-items:center;padding-left:18px;padding-right:18px;flex-shrink:0;z-index:50;}
 .tb-brand{font-size:22px;font-weight:700;color:var(--ac);margin-right:12px;}
 .tb-title{font-size:17px;font-weight:600;color:var(--tx);padding-left:12px;border-left:1px solid var(--bd2);}
-
-/* SCROLL */
 #scroll-area{flex:1;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;overscroll-behavior-y:contain;padding-bottom:calc(var(--bot-h) + var(--safe-b) + 16px);}
-
-/* PAGES */
 .page{display:none;padding:16px;}
 .page.active{display:block;}
-
-/* BOTTOM NAV */
 #bottom-nav{height:calc(var(--bot-h) + var(--safe-b));padding-bottom:var(--safe-b);background:rgba(8,13,26,.97);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-top:1px solid var(--bd);display:flex;align-items:flex-start;padding-top:8px;flex-shrink:0;z-index:50;}
 .nav-item{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;padding:6px 2px;cursor:pointer;border:none;background:none;color:var(--tx3);font-family:'Sarabun',sans-serif;transition:color .2s;position:relative;}
 .nav-item.active{color:var(--ac);}
 .nav-item .ni{font-size:26px;line-height:1;}
 .nav-item .nl{font-size:11px;font-weight:600;}
 .nav-item.active::before{content:'';position:absolute;top:-8px;left:50%;transform:translateX(-50%);width:32px;height:3px;background:var(--ac);border-radius:0 0 4px 4px;}
-
-/* SECTION */
 .sec-hd{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;gap:8px;flex-wrap:wrap;}
 .sec-title{font-size:22px;font-weight:700;}
 .sec-sub{font-size:13px;color:var(--tx2);margin-top:2px;}
-
-/* CARD */
 .card{background:var(--sf);border:1px solid var(--bd);border-radius:16px;padding:16px;margin-bottom:14px;}
 .card-lbl{font-size:11px;font-weight:700;color:var(--tx3);text-transform:uppercase;letter-spacing:1.2px;margin-bottom:12px;}
-
-/* STAT */
 .stat-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px;}
 .stat-row.c3{grid-template-columns:1fr 1fr 1fr;}
 .sbox{background:var(--sf2);border:1px solid var(--bd);border-radius:12px;padding:13px 14px;position:relative;overflow:hidden;}
@@ -70,24 +52,16 @@ body{font-family:'Sarabun',sans-serif;background:var(--bg);color:var(--tx);heigh
 .sbox .sl{font-size:11px;color:var(--tx3);text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px;}
 .sbox .sv{font-family:'Space Mono',monospace;font-size:15px;font-weight:700;word-break:break-all;line-height:1.3;}
 .sb-ac .sv{color:var(--ac)}.sb-gr .sv{color:var(--gr)}.sb-pu .sv{color:var(--pu)}.sb-or .sv{color:var(--or)}.sb-re .sv{color:var(--re)}
-
-/* PILLS */
 .pills{display:flex;gap:8px;flex-wrap:wrap;}
 .pill{padding:9px 18px;border-radius:22px;background:var(--sf2);border:1px solid var(--bd);color:var(--tx2);font-size:15px;cursor:pointer;transition:all .2s;font-family:'Sarabun',sans-serif;white-space:nowrap;font-weight:500;}
 .pill.active{background:var(--ac);color:#000;border-color:var(--ac);font-weight:700;}
-
-/* TABLE */
 .tbl-wrap{overflow-x:auto;border-radius:12px;border:1px solid var(--bd);}
 table{width:100%;border-collapse:collapse;font-size:14px;}
 thead{background:var(--sf2);}
 th{padding:11px 12px;text-align:left;font-size:11px;font-weight:700;color:var(--tx3);text-transform:uppercase;letter-spacing:.5px;white-space:nowrap;}
 td{padding:13px 12px;border-top:1px solid var(--bd);vertical-align:middle;}
-
-/* BADGE */
 .badge{display:inline-block;padding:4px 10px;border-radius:20px;font-size:12px;font-weight:600;white-space:nowrap;}
 .b-ac{background:var(--ac-d);color:var(--ac)}.b-gr{background:var(--gr-d);color:var(--gr)}.b-or{background:var(--or-d);color:var(--or)}.b-re{background:var(--re-d);color:var(--re)}.b-pu{background:var(--pu-d);color:var(--pu)}.b-gy{background:rgba(100,116,139,.15);color:var(--tx2)}
-
-/* BUTTONS */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:12px 20px;border:none;border-radius:10px;font-family:'Sarabun',sans-serif;font-size:16px;font-weight:600;cursor:pointer;transition:all .15s;white-space:nowrap;min-height:46px;}
 .btn:active{opacity:.8;transform:scale(.97);}
 .btn-pr{background:var(--ac);color:#000;}.btn-sc{background:var(--sf2);color:var(--tx);border:1px solid var(--bd2);}
@@ -97,8 +71,6 @@ td{padding:13px 12px;border-top:1px solid var(--bd);vertical-align:middle;}
 .btn-sm{padding:9px 14px;font-size:14px;border-radius:8px;min-height:38px;}
 .btn-ic{padding:10px;border-radius:8px;min-height:38px;min-width:38px;font-size:15px;}
 .btn-fl{width:100%;padding:15px;font-size:17px;border-radius:12px;}
-
-/* FORM */
 .fg{margin-bottom:14px;}
 .fg label{display:block;font-size:14px;font-weight:600;color:var(--tx2);margin-bottom:7px;}
 input,select{width:100%;background:var(--sf2);border:1px solid var(--bd2);border-radius:10px;color:var(--tx);padding:13px 15px;font-family:'Sarabun',sans-serif;font-size:17px;outline:none;-webkit-appearance:none;appearance:none;transition:border-color .2s;min-height:50px;}
@@ -106,8 +78,6 @@ input:focus,select:focus{border-color:var(--ac);box-shadow:0 0 0 3px rgba(56,189
 input[readonly]{color:var(--ac);font-weight:700;}
 select option{background:var(--sf2);}
 .frow{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
-
-/* MODAL */
 .mol{position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.75);backdrop-filter:blur(4px);display:flex;align-items:flex-end;justify-content:center;opacity:0;pointer-events:none;transition:opacity .2s;}
 .mol.open{opacity:1;pointer-events:all;}
 .modal{background:var(--sf);border:1px solid var(--bd2);border-radius:20px 20px 0 0;padding:20px 18px calc(30px + var(--safe-b));width:100%;transform:translateY(100%);transition:transform .25s cubic-bezier(.4,0,.2,1);max-height:90dvh;overflow-y:auto;}
@@ -116,8 +86,6 @@ select option{background:var(--sf2);}
 .mtitle{font-size:18px;font-weight:700;color:var(--ac);margin-bottom:16px;}
 .mfoot{display:flex;gap:10px;margin-top:16px;}
 .mfoot .btn{flex:1;}
-
-/* ALLOC */
 .ai{background:var(--sf2);border:1px solid var(--bd);border-radius:14px;padding:14px;margin-bottom:12px;position:relative;overflow:hidden;}
 .ai-stripe{position:absolute;left:0;top:0;bottom:0;width:3px;}
 .ai-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;}
@@ -130,19 +98,13 @@ select option{background:var(--sf2);}
 .ai-sep{font-size:16px;color:var(--tx3);text-align:center;}
 .ai-bar{height:5px;background:var(--bd);border-radius:3px;overflow:hidden;margin-top:10px;}
 .ai-fill{height:100%;border-radius:3px;transition:width .3s ease;}
-
-/* REMAINING */
 .rem-box{background:linear-gradient(135deg,rgba(52,211,153,.08),rgba(56,189,248,.06));border:1px solid rgba(52,211,153,.25);border-radius:14px;padding:18px;text-align:center;margin-bottom:12px;}
 .rem-lbl{font-size:11px;color:var(--tx2);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;}
 .rem-val{font-family:'Space Mono',monospace;font-size:24px;font-weight:700;color:var(--gr);}
 .rem-val.neg{color:var(--re);}
 .rem-pct{font-size:14px;color:var(--tx2);margin-top:3px;}
-
-/* PCT BADGE */
 .pct-b{display:inline-flex;align-items:center;gap:5px;padding:7px 14px;border-radius:20px;font-size:14px;font-weight:700;background:var(--gr-d);color:var(--gr);border:1px solid rgba(52,211,153,.3);}
 .pct-b.over{background:var(--re-d);color:var(--re);border-color:rgba(248,113,113,.3);}
-
-/* PIE */
 .pie-wrap{width:200px;height:200px;margin:0 auto 6px;}
 #pieCanvas{display:block;}
 .pie-legend{display:flex;flex-direction:column;gap:7px;margin-top:14px;}
@@ -150,20 +112,15 @@ select option{background:var(--sf2);}
 .pie-leg-dot{width:11px;height:11px;border-radius:50%;flex-shrink:0;}
 .pie-leg-name{flex:1;color:var(--tx2);}
 .pie-leg-pct{font-family:'Space Mono',monospace;font-size:13px;color:var(--tx);}
-
-/* LOADING */
 #loading-overlay{position:fixed;inset:0;z-index:9999;background:var(--bg);display:none;flex-direction:column;align-items:center;justify-content:center;gap:18px;padding:24px;text-align:center;}
 #loading-overlay.show{display:flex;}
 .lring{width:48px;height:48px;border:3px solid var(--bd2);border-top-color:var(--ac);border-radius:50%;animation:spin .8s linear infinite;}
 @keyframes spin{to{transform:rotate(360deg);}}
 #ls{color:var(--tx2);font-size:15px;}
-
-/* TOAST */
 #toast{position:fixed;bottom:calc(var(--bot-h) + var(--safe-b) + 12px);left:50%;transform:translateX(-50%) translateY(14px);z-index:9999;background:var(--sf2);border:1px solid var(--bd2);border-radius:24px;padding:11px 22px;font-size:15px;color:var(--tx);box-shadow:0 6px 24px rgba(0,0,0,.5);white-space:nowrap;opacity:0;transition:all .22s;pointer-events:none;}
 #toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
 #toast.ok{border-color:rgba(52,211,153,.5);color:var(--gr);}
 #toast.err{border-color:rgba(248,113,113,.5);color:var(--re);}
-
 .mono{font-family:'Space Mono',monospace;}
 .t-ac{color:var(--ac)}.t-gr{color:var(--gr)}.t-re{color:var(--re)}.t-dm{color:var(--tx3)}
 .fw7{font-weight:700;}
@@ -172,13 +129,11 @@ select option{background:var(--sf2);}
 </head>
 <body>
 
-<!-- LOADING -->
 <div id="loading-overlay">
   <div class="lring"></div>
   <div id="ls">กำลังโหลดข้อมูล...</div>
 </div>
 
-<!-- APP -->
 <div id="app">
   <div id="topbar">
     <div class="tb-brand">💰</div>
@@ -187,7 +142,6 @@ select option{background:var(--sf2);}
 
   <div id="scroll-area">
 
-    <!-- RECORD -->
     <div class="page active" id="page-record">
       <div class="sec-hd">
         <div><div class="sec-title">📋 บันทึกเวร</div><div class="sec-sub">บันทึกการทำเวรแยกตาม Period</div></div>
@@ -210,7 +164,6 @@ select option{background:var(--sf2);}
       </div>
     </div>
 
-    <!-- DATA -->
     <div class="page" id="page-data">
       <div class="sec-hd">
         <div><div class="sec-title">📊 ข้อมูลเวร</div><div class="sec-sub">ราคาค่าเวรแต่ละประเภท</div></div>
@@ -226,7 +179,6 @@ select option{background:var(--sf2);}
       </div>
     </div>
 
-    <!-- FIX -->
     <div class="page" id="page-fix">
       <div class="sec-hd">
         <div><div class="sec-title">🔧 ฐานเงินเดือน</div><div class="sec-sub">BASE กองทุน สหกรณ์ ภาษี</div></div>
@@ -243,7 +195,6 @@ select option{background:var(--sf2);}
       </div>
     </div>
 
-    <!-- MANAGE -->
     <div class="page" id="page-manage">
       <div class="sec-hd">
         <div><div class="sec-title">💼 จัดการเงิน</div><div class="sec-sub">คำนวณและแบ่งสัดส่วนต่อเดือน</div></div>
@@ -287,7 +238,7 @@ select option{background:var(--sf2);}
       </div>
     </div>
 
-  </div><!-- /scroll-area -->
+  </div>
 
   <div id="bottom-nav">
     <button class="nav-item active" id="nav-record" onclick="UI.switchTab('record')"><span class="ni">📋</span><span class="nl">บันทึกเวร</span></button>
@@ -349,83 +300,42 @@ select option{background:var(--sf2);}
 <div id="toast"></div>
 
 <script>
-// ============================================================
-// CONFIG
-// ============================================================
-const CONFIG = {
-  API_KEY:        'AIzaSyDI0KAzD9E1rIF21e4DNt6NcU5blsA-rKQ',
-  SPREADSHEET_ID: '1rO6FeuIQFbvnBnHd-QMOhMCCNFMURZFQJJVVW9nAru8',
+// ═══════════════════════════════════════════════════════════
+// CONFIG — ใส่ GAS Web App URL ที่นี่
+// ═══════════════════════════════════════════════════════════
+const GAS_URL = 'https://script.google.com/macros/s/AKfycbycOsagtIodGlc_rUAhOkM6N0s9O4xRYtQdt0RO-2DSZuBra4o0c053ai-jABG6059L/exec';
+// ตัวอย่าง: 'https://script.google.com/macros/s/AKfy.../exec'
+
+// ═══════════════════════════════════════════════════════════
+// API — ส่ง request ไป GAS
+// ═══════════════════════════════════════════════════════════
+const API = {
+  async call(body) {
+    const res = await fetch(GAS_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain' }, // ใช้ text/plain เพื่อหลีกเลี่ยง CORS preflight
+      body: JSON.stringify(body),
+      redirect: 'follow',
+    });
+    const json = await res.json();
+    if (!json.ok) throw new Error(json.error || 'API Error');
+    return json.data;
+  },
+
+  readSheet: name => API.call({ action:'read', sheet:name }),
+  appendRow: (name,row) => API.call({ action:'append', sheet:name, row }),
+  updateRow: (name,idx,row) => API.call({ action:'update', sheet:name, rowIndex:idx, row }),
+  deleteRow: (name,idx) => API.call({ action:'delete', sheet:name, rowIndex:idx }),
+  addColumn: (name,col) => API.call({ action:'addColumn', sheet:name, colName:col }),
 };
 
-// ============================================================
-// SHEETS API
-// ============================================================
-const SheetsAPI = (() => {
-  const BASE = 'https://sheets.googleapis.com/v4/spreadsheets';
-
-  async function req(method, path, body = null) {
-    const sep = path.includes('?') ? '&' : '?';
-    const url = `${BASE}/${CONFIG.SPREADSHEET_ID}${path}${sep}key=${CONFIG.API_KEY}`;
-    const opt = { method, headers: { 'Content-Type': 'application/json' } };
-    if (body) opt.body = JSON.stringify(body);
-    const res = await fetch(url, opt);
-    if (!res.ok) {
-      const e = await res.json().catch(() => ({}));
-      throw new Error((e.error && e.error.message) || 'API Error ' + res.status);
-    }
-    return res.json();
-  }
-
-  const enc = s => encodeURIComponent(s);
-
-  function toLetter(n) {
-    let s = '';
-    while (n > 0) { s = String.fromCharCode(64 + ((n-1)%26+1)) + s; n = Math.floor((n-1)/26); }
-    return s;
-  }
-
-  async function readSheet(name) {
-    const d = await req('GET', `/values/${enc(name)}`);
-    return d.values || [];
-  }
-
-  async function appendRow(name, row) {
-    await req('POST', `/values/${enc(name)}:append?valueInputOption=USER_ENTERED&insertDataOption=INSERT_ROWS`, { values: [row] });
-  }
-
-  async function updateRow(name, rowIndex, row) {
-    await req('PUT', `/values/${enc(name+'!A'+rowIndex)}?valueInputOption=USER_ENTERED`, { values: [row] });
-  }
-
-  async function deleteRow(name, rowIndex) {
-    const meta = await req('GET', '?fields=sheets.properties');
-    const sheet = meta.sheets.find(s => s.properties.title === name);
-    if (!sheet) throw new Error('ไม่พบ sheet: ' + name);
-    await req('POST', ':batchUpdate', {
-      requests: [{ deleteDimension: { range: {
-        sheetId: sheet.properties.sheetId,
-        dimension: 'ROWS', startIndex: rowIndex-1, endIndex: rowIndex,
-      }}}],
-    });
-  }
-
-  async function addColumn(name, colName) {
-    const rows = await readSheet(name);
-    const letter = toLetter((rows[0] || []).length + 1);
-    await req('PUT', `/values/${enc(name+'!'+letter+'1')}?valueInputOption=USER_ENTERED`, { values: [[colName]] });
-  }
-
-  return { readSheet, appendRow, updateRow, deleteRow, addColumn };
-})();
-
-// ============================================================
-// STATE
-// ============================================================
+// ═══════════════════════════════════════════════════════════
+// STATE & CONSTANTS
+// ═══════════════════════════════════════════════════════════
 const State = {
-  records:[], shifts:[], fixData:[], manageData:[],
-  period:null, mgPeriod:null, calcResult:null,
-  editRecRow:null, editStRow:null, editFixRow:null,
-  allocs:{},
+  records:[],shifts:[],fixData:[],manageData:[],
+  period:null,mgPeriod:null,calcResult:null,
+  editRecRow:null,editStRow:null,editFixRow:null,allocs:{},
 };
 
 const DEF_CATS = [
@@ -435,28 +345,31 @@ const DEF_CATS = [
   {name:'EDUCATION',pct:5,color:'#8b5cf6'},{name:'BONUS',pct:5,color:'#ec4899'},
   {name:'CHARITY',pct:2,color:'#14b8a6'},{name:'TRAVEL TRIPS',pct:5,color:'#06b6d4'},
 ];
-const COLOR_POOL=['#38bdf8','#34d399','#a78bfa','#fb923c','#fbbf24','#f87171','#ec4899','#14b8a6','#8b5cf6','#06b6d4','#84cc16','#f43f5e'];
-
-function catColor(n) {
-  const f = DEF_CATS.find(c => c.name===n);
-  if (f) return f.color;
-  let h=0; for(let i=0;i<n.length;i++) h=(h*31+n.charCodeAt(i))&0xffff;
-  return COLOR_POOL[h%COLOR_POOL.length];
-}
-
-function initAllocs() { State.allocs={}; DEF_CATS.forEach(c=>{State.allocs[c.name]=c.pct;}); }
+const COLOR_POOL=['#38bdf8','#34d399','#a78bfa','#fb923c','#fbbf24','#f87171','#ec4899','#14b8a6','#8b5cf6','#06b6d4'];
+function catColor(n){const f=DEF_CATS.find(c=>c.name===n);if(f)return f.color;let h=0;for(let i=0;i<n.length;i++)h=(h*31+n.charCodeAt(i))&0xffff;return COLOR_POOL[h%COLOR_POOL.length];}
+function initAllocs(){State.allocs={};DEF_CATS.forEach(c=>{State.allocs[c.name]=c.pct;});}
 initAllocs();
 
-// ============================================================
-// DATA LAYER
-// ============================================================
+// ═══════════════════════════════════════════════════════════
+// DATA LAYER — parse 2D arrays from GAS into objects
+// Cost คำนวณ Unit × PerUnit เสมอ ไม่อ่านจาก sheet (fix ปัญหา Cost=0)
+// ═══════════════════════════════════════════════════════════
 const Data = {
   parseRecords: rows => rows.length<2?[]:rows.slice(1).filter(r=>r[0]||r[2]).map((r,i)=>({
-    PERIOD:String(r[0]||'').trim(), DATE:String(r[1]||'').trim(),
-    Type:String(r[2]||'').trim(), Unit:Number(r[3])||0,
-    PerUnit:Number(r[4])||0, Cost:Number(r[5])||0, _row:i+2,
+    PERIOD: String(r[0]||'').trim(),
+    DATE:   String(r[1]||'').trim(),
+    Type:   String(r[2]||'').trim(),
+    Unit:   Number(r[3])||0,
+    PerUnit:Number(r[4])||0,
+    // คำนวณ Cost จาก Unit×PerUnit เสมอ ไม่อ่านจาก column F
+    // เพราะ column F อาจว่างหรือผิดพลาดจากการบันทึกเดิม
+    Cost:   (Number(r[3])||0) * (Number(r[4])||0),
+    _row:   i+2,
   })),
-  recordToRow: rec => [rec.PERIOD, rec.DATE||'', rec.Type, rec.Unit||0, rec.PerUnit||0, (rec.Unit||0)*(rec.PerUnit||0)],
+  recordToRow: rec => {
+    const cost = (rec.Unit||0)*(rec.PerUnit||0);
+    return [rec.PERIOD, rec.DATE||'', rec.Type, rec.Unit||0, rec.PerUnit||0, cost];
+  },
 
   parseShifts: rows => rows.length<2?[]:rows.slice(1).filter(r=>r[0]).map((r,i)=>({
     Type:String(r[0]||'').trim(), Category:String(r[1]||'').trim(),
@@ -470,127 +383,97 @@ const Data = {
   fixToRow: it => [it.label, it.math, it.cost||0],
 
   parseManage: rows => {
-    if (rows.length<2) return [];
+    if(rows.length<2)return[];
     const headers=rows[0].map(h=>String(h).trim());
     return rows.slice(1).filter(r=>r[0]).map((r,i)=>{
-      const o={_row:i+2}; headers.forEach((h,j)=>{o[h]=r[j];}); return o;
+      const o={_row:i+2};headers.forEach((h,j)=>{o[h]=r[j];});return o;
     });
   },
   manageToRow: (headers,obj) => headers.map(h=>(obj[h]!==undefined&&obj[h]!==null)?obj[h]:''),
 };
 
-// ============================================================
+// ═══════════════════════════════════════════════════════════
 // APP
-// ============================================================
+// ═══════════════════════════════════════════════════════════
 const App = {
-  async init() {
-    await App.loadAll();
+  async init() { await App.loadAll(); },
+
+  setLoading(msg){
+    const ov=document.getElementById('loading-overlay'),ls=document.getElementById('ls');
+    if(msg){ov.classList.add('show');if(ls)ls.textContent=msg;}else ov.classList.remove('show');
   },
 
-  setLoading(msg) {
-    const ov=document.getElementById('loading-overlay');
-    const ls=document.getElementById('ls');
-    if (msg) { ov.classList.add('show'); if(ls) ls.textContent=msg; }
-    else      { ov.classList.remove('show'); }
-  },
-
-  async loadAll() {
+  async loadAll(){
     App.setLoading('กำลังโหลดข้อมูล...');
-    try {
-      const [rR,sR,fR,mR] = await Promise.all([
-        SheetsAPI.readSheet('RECORD'), SheetsAPI.readSheet('DATA'),
-        SheetsAPI.readSheet('FIX'),   SheetsAPI.readSheet('MANAGE'),
+    try{
+      const [rR,sR,fR,mR]=await Promise.all([
+        API.readSheet('RECORD'),API.readSheet('DATA'),
+        API.readSheet('FIX'),API.readSheet('MANAGE'),
       ]);
       State.records    = Data.parseRecords(rR);
       State.shifts     = Data.parseShifts(sR);
       State.fixData    = Data.parseFix(fR);
       State.manageData = Data.parseManage(mR);
-      App.setLoading(null);
-      UI.renderAll();
-    } catch(e) { App.setLoading(null); toast('โหลดไม่สำเร็จ: '+e.message,'err'); }
+      App.setLoading(null); UI.renderAll();
+    }catch(e){App.setLoading(null);toast('โหลดไม่สำเร็จ: '+e.message,'err');}
   },
 
-  async addRecord(rec)          { await SheetsAPI.appendRow('RECORD',Data.recordToRow(rec)); State.records=Data.parseRecords(await SheetsAPI.readSheet('RECORD')); },
-  async updateRecord(idx,rec)   { await SheetsAPI.updateRow('RECORD',idx,Data.recordToRow(rec)); State.records=Data.parseRecords(await SheetsAPI.readSheet('RECORD')); },
-  async deleteRecord(idx)       { await SheetsAPI.deleteRow('RECORD',idx); State.records=Data.parseRecords(await SheetsAPI.readSheet('RECORD')); },
+  async addRecord(rec)        {await API.appendRow('RECORD',Data.recordToRow(rec));State.records=Data.parseRecords(await API.readSheet('RECORD'));},
+  async updateRecord(idx,rec) {await API.updateRow('RECORD',idx,Data.recordToRow(rec));State.records=Data.parseRecords(await API.readSheet('RECORD'));},
+  async deleteRecord(idx)     {await API.deleteRow('RECORD',idx);State.records=Data.parseRecords(await API.readSheet('RECORD'));},
 
-  async addShift(it)            { await SheetsAPI.appendRow('DATA',Data.shiftToRow(it)); State.shifts=Data.parseShifts(await SheetsAPI.readSheet('DATA')); },
-  async updateShift(idx,it)     { await SheetsAPI.updateRow('DATA',idx,Data.shiftToRow(it)); State.shifts=Data.parseShifts(await SheetsAPI.readSheet('DATA')); },
-  async deleteShift(idx)        { await SheetsAPI.deleteRow('DATA',idx); State.shifts=Data.parseShifts(await SheetsAPI.readSheet('DATA')); },
+  async addShift(it)          {await API.appendRow('DATA',Data.shiftToRow(it));State.shifts=Data.parseShifts(await API.readSheet('DATA'));},
+  async updateShift(idx,it)   {await API.updateRow('DATA',idx,Data.shiftToRow(it));State.shifts=Data.parseShifts(await API.readSheet('DATA'));},
+  async deleteShift(idx)      {await API.deleteRow('DATA',idx);State.shifts=Data.parseShifts(await API.readSheet('DATA'));},
 
-  async addFix(it)              { await SheetsAPI.appendRow('FIX',Data.fixToRow(it)); State.fixData=Data.parseFix(await SheetsAPI.readSheet('FIX')); },
-  async updateFix(idx,it)       { await SheetsAPI.updateRow('FIX',idx,Data.fixToRow(it)); State.fixData=Data.parseFix(await SheetsAPI.readSheet('FIX')); },
-  async deleteFix(idx)          { await SheetsAPI.deleteRow('FIX',idx); State.fixData=Data.parseFix(await SheetsAPI.readSheet('FIX')); },
+  async addFix(it)            {await API.appendRow('FIX',Data.fixToRow(it));State.fixData=Data.parseFix(await API.readSheet('FIX'));},
+  async updateFix(idx,it)     {await API.updateRow('FIX',idx,Data.fixToRow(it));State.fixData=Data.parseFix(await API.readSheet('FIX'));},
+  async deleteFix(idx)        {await API.deleteRow('FIX',idx);State.fixData=Data.parseFix(await API.readSheet('FIX'));},
 
-  async addManageCategory(name) { await SheetsAPI.addColumn('MANAGE',name); },
-
-  async saveManageRow(obj) {
-    const rows=await SheetsAPI.readSheet('MANAGE');
+  async addManageCategory(name){await API.addColumn('MANAGE',name);},
+  async saveManageRow(obj){
+    const rows=await API.readSheet('MANAGE');
     const headers=rows[0]?rows[0].map(h=>String(h).trim()):[];
     let existingRow=-1;
     for(let i=1;i<rows.length;i++){if(String(rows[i][0]||'').trim()===String(obj['PERIOD']).trim()){existingRow=i+1;break;}}
     const vals=Data.manageToRow(headers,obj);
-    if(existingRow>0) await SheetsAPI.updateRow('MANAGE',existingRow,vals);
-    else              await SheetsAPI.appendRow('MANAGE',vals);
-    State.manageData=Data.parseManage(await SheetsAPI.readSheet('MANAGE'));
+    if(existingRow>0)await API.updateRow('MANAGE',existingRow,vals);
+    else await API.appendRow('MANAGE',vals);
+    State.manageData=Data.parseManage(await API.readSheet('MANAGE'));
   },
 
-  calculateSummary(period) {
-    const p=String(period).trim(), recs=State.records.filter(r=>r.PERIOD===p);
+  calculateSummary(period){
+    const p=String(period).trim(),recs=State.records.filter(r=>r.PERIOD===p);
+    // Cost ถูกคำนวณแล้วใน parseRecords (Unit × PerUnit)
     const totalShift=recs.reduce((s,r)=>s+r.Cost,0);
     let base=0,ded=0;
-    State.fixData.forEach(f=>{ if(f.math==='(+)') base+=f.cost; else ded+=f.cost; });
-    return { period:p, baseSalary:base, totalDeductions:ded, netSalary:base-ded,
-             totalShiftIncome:totalShift, netTotal:base-ded+totalShift, records:recs };
+    State.fixData.forEach(f=>{if(f.math==='(+)')base+=f.cost;else ded+=f.cost;});
+    return{period:p,baseSalary:base,totalDeductions:ded,netSalary:base-ded,totalShiftIncome:totalShift,netTotal:base-ded+totalShift,records:recs};
   },
 };
 
-// ============================================================
+// ═══════════════════════════════════════════════════════════
 // UTILS
-// ============================================================
-const fmt    = n => (Number(n)||0).toLocaleString('th-TH',{minimumFractionDigits:2,maximumFractionDigits:2});
-const fmtInt = n => (Number(n)||0).toLocaleString('th-TH',{minimumFractionDigits:0,maximumFractionDigits:0});
-const parseComma = v => parseFloat(String(v).replace(/,/g,''))||0;
-const clearComma = el => { el.value=String(el.value).replace(/,/g,''); };
-const safeId = s => String(s||'').replace(/[^a-zA-Z0-9]/g,'_');
-const escQ   = s => String(s||'').replace(/\\/g,'\\\\').replace(/'/g,"\\'");
-
+// ═══════════════════════════════════════════════════════════
+const fmt    = n=>(Number(n)||0).toLocaleString('th-TH',{minimumFractionDigits:2,maximumFractionDigits:2});
+const fmtInt = n=>(Number(n)||0).toLocaleString('th-TH',{minimumFractionDigits:0,maximumFractionDigits:0});
+const parseComma = v=>parseFloat(String(v).replace(/,/g,''))||0;
+const clearComma = el=>{el.value=String(el.value).replace(/,/g,'');};
+const safeId = s=>String(s||'').replace(/[^a-zA-Z0-9]/g,'_');
+const escQ   = s=>String(s||'').replace(/\\/g,'\\\\').replace(/'/g,"\\'");
 let _tt;
-function toast(msg,type='ok'){
-  const el=document.getElementById('toast');
-  el.textContent=(type==='ok'?'✅ ':'❌ ')+msg;
-  el.className='show '+type;
-  clearTimeout(_tt); _tt=setTimeout(()=>{el.className='';},3000);
-}
+function toast(msg,type='ok'){const el=document.getElementById('toast');el.textContent=(type==='ok'?'✅ ':'❌ ')+msg;el.className='show '+type;clearTimeout(_tt);_tt=setTimeout(()=>{el.className='';},3000);}
 
-// ============================================================
+// ═══════════════════════════════════════════════════════════
 // UI
-// ============================================================
-const UI = {
+// ═══════════════════════════════════════════════════════════
+const UI={
   TITLES:{record:'บันทึกเวร',data:'ข้อมูลเวร',fix:'ฐานเงินเดือน',manage:'จัดการเงิน'},
-
   renderAll(){UI.renderPeriods();UI.renderDataTable();UI.renderFixTable();UI.renderManageHistory();UI.populateTypeSelect();},
-
-  switchTab(t){
-    document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-    document.querySelectorAll('.nav-item').forEach(b=>b.classList.remove('active'));
-    document.getElementById('page-'+t).classList.add('active');
-    document.getElementById('nav-'+t).classList.add('active');
-    document.getElementById('topbar-title').textContent=UI.TITLES[t]||t;
-    document.getElementById('scroll-area').scrollTop=0;
-    if(t==='manage') UI.renderManagePeriods();
-  },
-
+  switchTab(t){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav-item').forEach(b=>b.classList.remove('active'));document.getElementById('page-'+t).classList.add('active');document.getElementById('nav-'+t).classList.add('active');document.getElementById('topbar-title').textContent=UI.TITLES[t]||t;document.getElementById('scroll-area').scrollTop=0;if(t==='manage')UI.renderManagePeriods();},
   getPeriods(){const seen={},res=[];State.records.forEach(r=>{if(r.PERIOD&&!seen[r.PERIOD]){seen[r.PERIOD]=1;res.push(r.PERIOD);}});return res;},
-
-  renderPeriods(){
-    const el=document.getElementById('record-periods'),ps=UI.getPeriods();
-    if(!ps.length){el.innerHTML='<span class="t-dm">ยังไม่มี Period</span>';return;}
-    el.innerHTML=ps.map(p=>`<button class="pill${State.period===p?' active':''}" onclick="UI.selectPeriod('${escQ(p)}')">${p}</button>`).join('');
-  },
-
+  renderPeriods(){const el=document.getElementById('record-periods'),ps=UI.getPeriods();if(!ps.length){el.innerHTML='<span class="t-dm">ยังไม่มี Period</span>';return;}el.innerHTML=ps.map(p=>`<button class="pill${State.period===p?' active':''}" onclick="UI.selectPeriod('${escQ(p)}')">${p}</button>`).join('');},
   selectPeriod(p){State.period=p;UI.renderPeriods();UI.renderRecTable(p);document.getElementById('rec-period-lbl').textContent='— '+p;},
-
   renderRecTable(period){
     const recs=State.records.filter(r=>r.PERIOD===period),tb=document.getElementById('rec-tbody');
     document.getElementById('rec-summary').style.display=recs.length?'block':'none';
@@ -599,292 +482,61 @@ const UI = {
     tb.innerHTML=recs.map(r=>{
       total+=r.Cost;
       let ds='-';if(r.DATE)try{ds=new Date(r.DATE).toLocaleDateString('th-TH',{day:'2-digit',month:'short'});}catch(e){}
-      return `<tr>
-        <td style="white-space:nowrap;font-size:13px">${ds}</td>
-        <td><span class="badge b-ac">${r.Type}</span></td>
-        <td class="mono">${r.Unit}</td><td class="mono">${fmt(r.PerUnit)}</td>
-        <td class="mono fw7 t-ac" style="white-space:nowrap">${fmt(r.Cost)}</td>
-        <td><div style="display:flex;gap:4px">
-          <button class="btn btn-wn btn-ic" onclick="UI.openEditRec(${r._row})">✏️</button>
-          <button class="btn btn-dg btn-ic" onclick="UI.delRec(${r._row})">🗑</button>
-        </div></td></tr>`;
+      return`<tr><td style="white-space:nowrap;font-size:13px">${ds}</td><td><span class="badge b-ac">${r.Type}</span></td><td class="mono">${r.Unit}</td><td class="mono">${fmt(r.PerUnit)}</td><td class="mono fw7 t-ac" style="white-space:nowrap">${fmt(r.Cost)}</td><td><div style="display:flex;gap:4px"><button class="btn btn-wn btn-ic" onclick="UI.openEditRec(${r._row})">✏️</button><button class="btn btn-dg btn-ic" onclick="UI.delRec(${r._row})">🗑</button></div></td></tr>`;
     }).join('');
-    document.getElementById('rec-stats').innerHTML=
-      `<div class="sbox sb-ac"><div class="sl">รายการ</div><div class="sv">${recs.length}</div></div>`+
-      `<div class="sbox sb-gr"><div class="sl">รายได้เวรรวม</div><div class="sv">${fmt(total)}</div></div>`;
+    document.getElementById('rec-stats').innerHTML=`<div class="sbox sb-ac"><div class="sl">รายการ</div><div class="sv">${recs.length}</div></div><div class="sbox sb-gr"><div class="sl">รายได้เวรรวม</div><div class="sv">${fmt(total)}</div></div>`;
   },
-
-  openAddRecord(){
-    State.editRecRow=null;document.getElementById('mrec-title').textContent='➕ เพิ่มรายการเวร';
-    document.getElementById('r-period').value=State.period||'';document.getElementById('r-date').value='';
-    document.getElementById('r-type').value='';document.getElementById('r-unit').value='1';
-    document.getElementById('r-perunit').value='0';document.getElementById('r-cost-preview').value='฿0.00';
-    document.getElementById('modal-rec').classList.add('open');
-  },
-
-  openEditRec(row){
-    const r=State.records.find(x=>x._row===row);if(!r)return;
-    State.editRecRow=row;document.getElementById('mrec-title').textContent='✏️ แก้ไขรายการเวร';
-    document.getElementById('r-period').value=r.PERIOD;document.getElementById('r-date').value=r.DATE||'';
-    document.getElementById('r-type').value=r.Type;document.getElementById('r-unit').value=r.Unit;
-    document.getElementById('r-perunit').value=r.PerUnit;document.getElementById('r-cost-preview').value='฿'+fmt(r.Cost);
-    document.getElementById('modal-rec').classList.add('open');
-  },
-
+  openAddRecord(){State.editRecRow=null;document.getElementById('mrec-title').textContent='➕ เพิ่มรายการเวร';document.getElementById('r-period').value=State.period||'';document.getElementById('r-date').value='';document.getElementById('r-type').value='';document.getElementById('r-unit').value='1';document.getElementById('r-perunit').value='0';document.getElementById('r-cost-preview').value='฿0.00';document.getElementById('modal-rec').classList.add('open');},
+  openEditRec(row){const r=State.records.find(x=>x._row===row);if(!r)return;State.editRecRow=row;document.getElementById('mrec-title').textContent='✏️ แก้ไขรายการเวร';document.getElementById('r-period').value=r.PERIOD;document.getElementById('r-date').value=r.DATE||'';document.getElementById('r-type').value=r.Type;document.getElementById('r-unit').value=r.Unit;document.getElementById('r-perunit').value=r.PerUnit;document.getElementById('r-cost-preview').value='฿'+fmt(r.Cost);document.getElementById('modal-rec').classList.add('open');},
   autoFillPerUnit(){const st=State.shifts.find(s=>s.Type===document.getElementById('r-type').value);if(st){document.getElementById('r-perunit').value=st.COST;UI.calcPreview();}},
   calcPreview(){const u=parseFloat(document.getElementById('r-unit').value)||0,pu=parseFloat(document.getElementById('r-perunit').value)||0;document.getElementById('r-cost-preview').value='฿'+fmt(u*pu);},
-
   async submitRecord(){
     const period=document.getElementById('r-period').value.trim(),type=document.getElementById('r-type').value;
     if(!period||!type)return toast('กรุณากรอก Period และประเภทเวร','err');
-    const rec={PERIOD:period,DATE:document.getElementById('r-date').value,Type:type,
-      Unit:parseFloat(document.getElementById('r-unit').value)||0,PerUnit:parseFloat(document.getElementById('r-perunit').value)||0};
+    const rec={PERIOD:period,DATE:document.getElementById('r-date').value,Type:type,Unit:parseFloat(document.getElementById('r-unit').value)||0,PerUnit:parseFloat(document.getElementById('r-perunit').value)||0};
     App.setLoading('กำลังบันทึก...');
-    try{
-      if(State.editRecRow){await App.updateRecord(State.editRecRow,rec);toast('แก้ไขสำเร็จ');}
-      else{await App.addRecord(rec);if(!State.period)State.period=period;toast('เพิ่มสำเร็จ');}
-      UI.closeModal('modal-rec');UI.renderPeriods();if(State.period)UI.renderRecTable(State.period);UI.populateTypeSelect();
-    }catch(e){toast('Error: '+e.message,'err');}
-    App.setLoading(null);
-  },
-
-  async delRec(row){
-    if(!confirm('ลบรายการนี้?'))return;
-    App.setLoading('กำลังลบ...');
-    try{await App.deleteRecord(row);toast('ลบสำเร็จ');UI.renderPeriods();if(State.period)UI.renderRecTable(State.period);}
+    try{if(State.editRecRow){await App.updateRecord(State.editRecRow,rec);toast('แก้ไขสำเร็จ');}else{await App.addRecord(rec);if(!State.period)State.period=period;toast('เพิ่มสำเร็จ');}UI.closeModal('modal-rec');UI.renderPeriods();if(State.period)UI.renderRecTable(State.period);UI.populateTypeSelect();}
     catch(e){toast('Error: '+e.message,'err');}
     App.setLoading(null);
   },
-
+  async delRec(row){if(!confirm('ลบรายการนี้?'))return;App.setLoading('กำลังลบ...');try{await App.deleteRecord(row);toast('ลบสำเร็จ');UI.renderPeriods();if(State.period)UI.renderRecTable(State.period);}catch(e){toast('Error: '+e.message,'err');}App.setLoading(null);},
   openPeriodModal(){document.getElementById('new-period').value='';document.getElementById('modal-period').classList.add('open');},
-  setPeriod(){
-    const v=document.getElementById('new-period').value.trim();if(!v)return;
-    UI.closeModal('modal-period');State.period=v;UI.renderPeriods();UI.renderRecTable(v);
-    document.getElementById('rec-period-lbl').textContent='— '+v;
-  },
-
-  populateTypeSelect(){
-    const sel=document.getElementById('r-type'),cur=sel.value;
-    sel.innerHTML='<option value="">-- เลือกประเภท --</option>'+
-      State.shifts.map(s=>`<option value="${s.Type}">${s.Type} | ฿${fmt(s.COST)}/${s.PerUnit}</option>`).join('');
-    if(cur)sel.value=cur;
-  },
-
-  renderDataTable(){
-    const tb=document.getElementById('data-tbody');
-    if(!State.shifts.length){tb.innerHTML='<tr><td colspan="4" style="text-align:center;padding:28px" class="t-dm">ยังไม่มีข้อมูล</td></tr>';return;}
-    tb.innerHTML=State.shifts.map(st=>`<tr>
-      <td><span class="badge b-ac">${st.Type}</span></td>
-      <td><span class="badge b-gy">${st.PerUnit}</span></td>
-      <td class="mono fw7 t-ac">${fmt(st.COST)}</td>
-      <td><div style="display:flex;gap:4px">
-        <button class="btn btn-wn btn-ic" onclick="UI.openEditST(${st._row})">✏️</button>
-        <button class="btn btn-dg btn-ic" onclick="UI.delST(${st._row})">🗑</button>
-      </div></td></tr>`).join('');
-  },
-
+  setPeriod(){const v=document.getElementById('new-period').value.trim();if(!v)return;UI.closeModal('modal-period');State.period=v;UI.renderPeriods();UI.renderRecTable(v);document.getElementById('rec-period-lbl').textContent='— '+v;},
+  populateTypeSelect(){const sel=document.getElementById('r-type'),cur=sel.value;sel.innerHTML='<option value="">-- เลือกประเภท --</option>'+State.shifts.map(s=>`<option value="${s.Type}">${s.Type} | ฿${fmt(s.COST)}/${s.PerUnit}</option>`).join('');if(cur)sel.value=cur;},
+  renderDataTable(){const tb=document.getElementById('data-tbody');if(!State.shifts.length){tb.innerHTML='<tr><td colspan="4" style="text-align:center;padding:28px" class="t-dm">ยังไม่มีข้อมูล</td></tr>';return;}tb.innerHTML=State.shifts.map(st=>`<tr><td><span class="badge b-ac">${st.Type}</span></td><td><span class="badge b-gy">${st.PerUnit}</span></td><td class="mono fw7 t-ac">${fmt(st.COST)}</td><td><div style="display:flex;gap:4px"><button class="btn btn-wn btn-ic" onclick="UI.openEditST(${st._row})">✏️</button><button class="btn btn-dg btn-ic" onclick="UI.delST(${st._row})">🗑</button></div></td></tr>`).join('');},
   openAddST(){State.editStRow=null;document.getElementById('mst-title').textContent='➕ เพิ่มประเภทเวร';['st-type','st-cost'].forEach(id=>document.getElementById(id).value='');document.getElementById('st-cat').value='NOR';document.getElementById('st-unit').value='Day';document.getElementById('modal-st').classList.add('open');},
   openEditST(row){const st=State.shifts.find(s=>s._row===row);if(!st)return;State.editStRow=row;document.getElementById('mst-title').textContent='✏️ แก้ไข';document.getElementById('st-type').value=st.Type;document.getElementById('st-cat').value=st.Category;document.getElementById('st-unit').value=st.PerUnit;document.getElementById('st-cost').value=st.COST;document.getElementById('modal-st').classList.add('open');},
-  async submitST(){
-    const item={Type:document.getElementById('st-type').value.trim(),Category:document.getElementById('st-cat').value,PerUnit:document.getElementById('st-unit').value,COST:parseFloat(document.getElementById('st-cost').value)||0};
-    if(!item.Type)return toast('กรุณากรอก Type','err');
-    App.setLoading('กำลังบันทึก...');
-    try{if(State.editStRow){await App.updateShift(State.editStRow,item);toast('แก้ไขสำเร็จ');}else{await App.addShift(item);toast('เพิ่มสำเร็จ');}UI.closeModal('modal-st');UI.renderDataTable();UI.populateTypeSelect();}
-    catch(e){toast('Error: '+e.message,'err');}
-    App.setLoading(null);
-  },
+  async submitST(){const item={Type:document.getElementById('st-type').value.trim(),Category:document.getElementById('st-cat').value,PerUnit:document.getElementById('st-unit').value,COST:parseFloat(document.getElementById('st-cost').value)||0};if(!item.Type)return toast('กรุณากรอก Type','err');App.setLoading('กำลังบันทึก...');try{if(State.editStRow){await App.updateShift(State.editStRow,item);toast('แก้ไขสำเร็จ');}else{await App.addShift(item);toast('เพิ่มสำเร็จ');}UI.closeModal('modal-st');UI.renderDataTable();UI.populateTypeSelect();}catch(e){toast('Error: '+e.message,'err');}App.setLoading(null);},
   async delST(row){if(!confirm('ลบประเภทนี้?'))return;App.setLoading('กำลังลบ...');try{await App.deleteShift(row);toast('ลบสำเร็จ');UI.renderDataTable();UI.populateTypeSelect();}catch(e){toast('Error: '+e.message,'err');}App.setLoading(null);},
-
-  renderFixTable(){
-    const tb=document.getElementById('fix-tbody');let inc=0,ded=0;
-    if(!State.fixData.length){tb.innerHTML='<tr><td colspan="4" style="text-align:center;padding:28px" class="t-dm">ยังไม่มีข้อมูล</td></tr>';document.getElementById('fix-stats').innerHTML='';return;}
-    tb.innerHTML=State.fixData.map(f=>{
-      const plus=f.math==='(+)';if(plus)inc+=f.cost;else ded+=f.cost;
-      return `<tr><td class="fw7">${f.label}</td><td><span class="badge ${plus?'b-gr':'b-re'}">${f.math}</span></td><td class="mono ${plus?'t-gr':'t-re'}">${fmt(f.cost)}</td>
-        <td><div style="display:flex;gap:4px"><button class="btn btn-wn btn-ic" onclick="UI.openEditFix(${f._row})">✏️</button><button class="btn btn-dg btn-ic" onclick="UI.delFix(${f._row})">🗑</button></div></td></tr>`;
-    }).join('');
-    const net=inc-ded;
-    document.getElementById('fix-stats').innerHTML=
-      `<div class="sbox sb-gr"><div class="sl">รายได้รวม</div><div class="sv">${fmt(inc)}</div></div>`+
-      `<div class="sbox sb-re"><div class="sl">หักรวม</div><div class="sv">${fmt(ded)}</div></div>`+
-      `<div class="sbox sb-ac"><div class="sl">Net ก่อนเวร</div><div class="sv">${fmt(net)}</div></div>`;
-  },
-
+  renderFixTable(){const tb=document.getElementById('fix-tbody');let inc=0,ded=0;if(!State.fixData.length){tb.innerHTML='<tr><td colspan="4" style="text-align:center;padding:28px" class="t-dm">ยังไม่มีข้อมูล</td></tr>';document.getElementById('fix-stats').innerHTML='';return;}tb.innerHTML=State.fixData.map(f=>{const plus=f.math==='(+)';if(plus)inc+=f.cost;else ded+=f.cost;return`<tr><td class="fw7">${f.label}</td><td><span class="badge ${plus?'b-gr':'b-re'}">${f.math}</span></td><td class="mono ${plus?'t-gr':'t-re'}">${fmt(f.cost)}</td><td><div style="display:flex;gap:4px"><button class="btn btn-wn btn-ic" onclick="UI.openEditFix(${f._row})">✏️</button><button class="btn btn-dg btn-ic" onclick="UI.delFix(${f._row})">🗑</button></div></td></tr>`;}).join('');const net=inc-ded;document.getElementById('fix-stats').innerHTML=`<div class="sbox sb-gr"><div class="sl">รายได้รวม</div><div class="sv">${fmt(inc)}</div></div><div class="sbox sb-re"><div class="sl">หักรวม</div><div class="sv">${fmt(ded)}</div></div><div class="sbox sb-ac"><div class="sl">Net ก่อนเวร</div><div class="sv">${fmt(net)}</div></div>`;},
   openAddFix(){State.editFixRow=null;document.getElementById('mfix-title').textContent='➕ เพิ่มรายการเงิน';document.getElementById('fix-label').value='';document.getElementById('fix-math').value='(+)';document.getElementById('fix-cost').value='';document.getElementById('modal-fix').classList.add('open');},
   openEditFix(row){const f=State.fixData.find(x=>x._row===row);if(!f)return;State.editFixRow=row;document.getElementById('mfix-title').textContent='✏️ แก้ไข';document.getElementById('fix-label').value=f.label;document.getElementById('fix-math').value=f.math;document.getElementById('fix-cost').value=f.cost;document.getElementById('modal-fix').classList.add('open');},
-  async submitFix(){
-    const item={label:document.getElementById('fix-label').value.trim(),math:document.getElementById('fix-math').value,cost:parseFloat(document.getElementById('fix-cost').value)||0};
-    if(!item.label)return toast('กรุณากรอกชื่อรายการ','err');
-    App.setLoading('กำลังบันทึก...');
-    try{if(State.editFixRow){await App.updateFix(State.editFixRow,item);toast('แก้ไขสำเร็จ');}else{await App.addFix(item);toast('เพิ่มสำเร็จ');}UI.closeModal('modal-fix');UI.renderFixTable();}
-    catch(e){toast('Error: '+e.message,'err');}
-    App.setLoading(null);
-  },
+  async submitFix(){const item={label:document.getElementById('fix-label').value.trim(),math:document.getElementById('fix-math').value,cost:parseFloat(document.getElementById('fix-cost').value)||0};if(!item.label)return toast('กรุณากรอกชื่อรายการ','err');App.setLoading('กำลังบันทึก...');try{if(State.editFixRow){await App.updateFix(State.editFixRow,item);toast('แก้ไขสำเร็จ');}else{await App.addFix(item);toast('เพิ่มสำเร็จ');}UI.closeModal('modal-fix');UI.renderFixTable();}catch(e){toast('Error: '+e.message,'err');}App.setLoading(null);},
   async delFix(row){if(!confirm('ลบรายการนี้?'))return;App.setLoading('กำลังลบ...');try{await App.deleteFix(row);toast('ลบสำเร็จ');UI.renderFixTable();}catch(e){toast('Error: '+e.message,'err');}App.setLoading(null);},
-
-  renderManagePeriods(){
-    const el=document.getElementById('manage-periods'),ps=UI.getPeriods();
-    if(!ps.length){el.innerHTML='<span class="t-dm">ยังไม่มีข้อมูลใน RECORD</span>';return;}
-    el.innerHTML=ps.map(p=>`<button class="pill${State.mgPeriod===p?' active':''}" onclick="UI.selectMgPeriod('${escQ(p)}')">${p}</button>`).join('');
-  },
-
-  selectMgPeriod(p){
-    State.mgPeriod=p;UI.renderManagePeriods();
-    document.getElementById('manage-content').style.display='none';
-    State.calcResult=App.calculateSummary(p);
-    UI.renderManageStats(State.calcResult);UI.renderAllocConfig();
-    document.getElementById('manage-content').style.display='block';
-    UI.drawPie();document.getElementById('scroll-area').scrollTo({top:0,behavior:'smooth'});
-  },
-
-  renderManageStats(r){
-    document.getElementById('manage-stats').innerHTML=
-      `<div class="sbox sb-ac"><div class="sl">เงินเดือนรวม</div><div class="sv">${fmt(r.netTotal)}</div></div>`+
-      `<div class="sbox sb-gr"><div class="sl">รายได้เวร</div><div class="sv">${fmt(r.totalShiftIncome)}</div></div>`+
-      `<div class="sbox sb-pu"><div class="sl">BASE</div><div class="sv">${fmt(r.baseSalary)}</div></div>`+
-      `<div class="sbox sb-or"><div class="sl">ยอดหัก</div><div class="sv">${fmt(r.totalDeductions)}</div></div>`;
-  },
-
+  renderManagePeriods(){const el=document.getElementById('manage-periods'),ps=UI.getPeriods();if(!ps.length){el.innerHTML='<span class="t-dm">ยังไม่มีข้อมูลใน RECORD</span>';return;}el.innerHTML=ps.map(p=>`<button class="pill${State.mgPeriod===p?' active':''}" onclick="UI.selectMgPeriod('${escQ(p)}')">${p}</button>`).join('');},
+  selectMgPeriod(p){State.mgPeriod=p;UI.renderManagePeriods();document.getElementById('manage-content').style.display='none';State.calcResult=App.calculateSummary(p);UI.renderManageStats(State.calcResult);UI.renderAllocConfig();document.getElementById('manage-content').style.display='block';UI.drawPie();document.getElementById('scroll-area').scrollTo({top:0,behavior:'smooth'});},
+  renderManageStats(r){document.getElementById('manage-stats').innerHTML=`<div class="sbox sb-ac"><div class="sl">เงินเดือนรวม</div><div class="sv">${fmt(r.netTotal)}</div></div><div class="sbox sb-gr"><div class="sl">รายได้เวร</div><div class="sv">${fmt(r.totalShiftIncome)}</div></div><div class="sbox sb-pu"><div class="sl">BASE</div><div class="sv">${fmt(r.baseSalary)}</div></div><div class="sbox sb-or"><div class="sl">ยอดหัก</div><div class="sv">${fmt(r.totalDeductions)}</div></div>`;},
   renderAllocConfig(){
     const net=State.calcResult?State.calcResult.netTotal:0,cats=Object.keys(State.allocs);
     let html='';
-    cats.forEach(name=>{
-      const pct=State.allocs[name]||0,amt=net*pct/100,col=catColor(name),sid=safeId(name);
-      html+=`<div class="ai" id="ai-${sid}"><div class="ai-stripe" style="background:${col}"></div>
-        <div class="ai-top"><div style="display:flex;align-items:center"><div class="ai-dot" style="background:${col}"></div><span class="ai-name">${name}</span></div>
-        <button class="btn btn-dg btn-sm" style="padding:5px 10px;font-size:13px" onclick="UI.removeAllocCat('${escQ(name)}')">✕ ลบ</button></div>
-        <div class="ai-inputs">
-          <div class="ai-inp-wrap"><input type="text" inputmode="decimal" id="pct-${sid}" value="${pct.toFixed(1)}" onfocus="clearComma(this)" onblur="UI.syncFromPct('${escQ(name)}')" oninput="UI.syncFromPct('${escQ(name)}')" style="padding-right:28px"><span class="ai-unit">%</span></div>
-          <div class="ai-sep">⇄</div>
-          <div class="ai-inp-wrap"><input type="text" inputmode="decimal" id="amt-${sid}" value="${fmtInt(Math.round(amt))}" onfocus="clearComma(this)" onblur="UI.syncFromAmt('${escQ(name)}')" oninput="UI.syncFromAmt('${escQ(name)}')" style="padding-right:22px"><span class="ai-unit" style="font-size:10px">฿</span></div>
-        </div>
-        <div class="ai-bar"><div class="ai-fill" id="bar-${sid}" style="width:${Math.min(pct,100)}%;background:${col}"></div></div></div>`;
-    });
-    document.getElementById('alloc-config').innerHTML=html;
-    UI.updateTotPct(net);
+    cats.forEach(name=>{const pct=State.allocs[name]||0,amt=net*pct/100,col=catColor(name),sid=safeId(name);html+=`<div class="ai" id="ai-${sid}"><div class="ai-stripe" style="background:${col}"></div><div class="ai-top"><div style="display:flex;align-items:center"><div class="ai-dot" style="background:${col}"></div><span class="ai-name">${name}</span></div><button class="btn btn-dg btn-sm" style="padding:5px 10px;font-size:13px" onclick="UI.removeAllocCat('${escQ(name)}')">✕ ลบ</button></div><div class="ai-inputs"><div class="ai-inp-wrap"><input type="text" inputmode="decimal" id="pct-${sid}" value="${pct.toFixed(1)}" onfocus="clearComma(this)" onblur="UI.syncFromPct('${escQ(name)}')" oninput="UI.syncFromPct('${escQ(name)}')" style="padding-right:28px"><span class="ai-unit">%</span></div><div class="ai-sep">⇄</div><div class="ai-inp-wrap"><input type="text" inputmode="decimal" id="amt-${sid}" value="${fmtInt(Math.round(amt))}" onfocus="clearComma(this)" onblur="UI.syncFromAmt('${escQ(name)}')" oninput="UI.syncFromAmt('${escQ(name)}')" style="padding-right:22px"><span class="ai-unit" style="font-size:10px">฿</span></div></div><div class="ai-bar"><div class="ai-fill" id="bar-${sid}" style="width:${Math.min(pct,100)}%;background:${col}"></div></div></div>`;});
+    document.getElementById('alloc-config').innerHTML=html;UI.updateTotPct(net);
   },
-
-  syncFromPct(name){
-    const net=State.calcResult?State.calcResult.netTotal:0,sid=safeId(name);
-    const pE=document.getElementById('pct-'+sid),aE=document.getElementById('amt-'+sid);if(!pE||!aE)return;
-    const pct=parseComma(pE.value);State.allocs[name]=pct;
-    if(document.activeElement!==aE)aE.value=fmtInt(Math.round(net*pct/100));
-    const b=document.getElementById('bar-'+sid);if(b)b.style.width=Math.min(pct,100)+'%';
-    UI.updateTotPct(net);UI.drawPie();
-  },
-
-  syncFromAmt(name){
-    const net=State.calcResult?State.calcResult.netTotal:0,sid=safeId(name);
-    const pE=document.getElementById('pct-'+sid),aE=document.getElementById('amt-'+sid);if(!pE||!aE||net===0)return;
-    const pct=parseComma(aE.value)/net*100;State.allocs[name]=pct;
-    if(document.activeElement!==pE)pE.value=pct.toFixed(1);
-    const b=document.getElementById('bar-'+sid);if(b)b.style.width=Math.min(pct,100)+'%';
-    UI.updateTotPct(net);UI.drawPie();
-  },
-
-  updateTotPct(net){
-    net=net||(State.calcResult?State.calcResult.netTotal:0);
-    const cats=Object.keys(State.allocs);
-    const tot=cats.reduce((s,k)=>s+(State.allocs[k]||0),0);
-    const rem=net-cats.reduce((s,k)=>s+net*(State.allocs[k]||0)/100,0);
-    const b=document.getElementById('tot-pct-badge');
-    if(b){b.textContent='รวม '+tot.toFixed(1)+'%';b.className='pct-b'+(tot>100?' over':'');}
-    const rv=document.getElementById('rem-val'),rp=document.getElementById('rem-pct');
-    if(rv){rv.textContent='฿'+fmt(rem);rv.className='rem-val'+(rem<0?' neg':'');}
-    if(rp&&net>0)rp.textContent=((rem/net)*100).toFixed(1)+'% ของเงินเดือนรวม';
-  },
-
-  recalcAlloc(){
-    const net=State.calcResult?State.calcResult.netTotal:0;
-    Object.keys(State.allocs).forEach(name=>{
-      const sid=safeId(name),pE=document.getElementById('pct-'+sid),aE=document.getElementById('amt-'+sid);
-      if(pE&&aE){const pct=State.allocs[name]||0;pE.value=pct.toFixed(1);aE.value=fmtInt(Math.round(net*pct/100));}
-    });
-    UI.updateTotPct(net);UI.drawPie();toast('คำนวณใหม่แล้ว');
-  },
-
+  syncFromPct(name){const net=State.calcResult?State.calcResult.netTotal:0,sid=safeId(name),pE=document.getElementById('pct-'+sid),aE=document.getElementById('amt-'+sid);if(!pE||!aE)return;const pct=parseComma(pE.value);State.allocs[name]=pct;if(document.activeElement!==aE)aE.value=fmtInt(Math.round(net*pct/100));const b=document.getElementById('bar-'+sid);if(b)b.style.width=Math.min(pct,100)+'%';UI.updateTotPct(net);UI.drawPie();},
+  syncFromAmt(name){const net=State.calcResult?State.calcResult.netTotal:0,sid=safeId(name),pE=document.getElementById('pct-'+sid),aE=document.getElementById('amt-'+sid);if(!pE||!aE||net===0)return;const pct=parseComma(aE.value)/net*100;State.allocs[name]=pct;if(document.activeElement!==pE)pE.value=pct.toFixed(1);const b=document.getElementById('bar-'+sid);if(b)b.style.width=Math.min(pct,100)+'%';UI.updateTotPct(net);UI.drawPie();},
+  updateTotPct(net){net=net||(State.calcResult?State.calcResult.netTotal:0);const cats=Object.keys(State.allocs),tot=cats.reduce((s,k)=>s+(State.allocs[k]||0),0),rem=net-cats.reduce((s,k)=>s+net*(State.allocs[k]||0)/100,0);const b=document.getElementById('tot-pct-badge');if(b){b.textContent='รวม '+tot.toFixed(1)+'%';b.className='pct-b'+(tot>100?' over':'');}const rv=document.getElementById('rem-val'),rp=document.getElementById('rem-pct');if(rv){rv.textContent='฿'+fmt(rem);rv.className='rem-val'+(rem<0?' neg':'');}if(rp&&net>0)rp.textContent=((rem/net)*100).toFixed(1)+'% ของเงินเดือนรวม';},
+  recalcAlloc(){const net=State.calcResult?State.calcResult.netTotal:0;Object.keys(State.allocs).forEach(name=>{const sid=safeId(name),pE=document.getElementById('pct-'+sid),aE=document.getElementById('amt-'+sid);if(pE&&aE){const pct=State.allocs[name]||0;pE.value=pct.toFixed(1);aE.value=fmtInt(Math.round(net*pct/100));}});UI.updateTotPct(net);UI.drawPie();toast('คำนวณใหม่แล้ว');},
   removeAllocCat(name){if(!confirm(`ลบ "${name}"?`))return;delete State.allocs[name];UI.renderAllocConfig();UI.drawPie();},
-
   openAddAllocCat(){document.getElementById('newcat-name').value='';document.getElementById('newcat-pct').value='5';document.getElementById('modal-addcat').classList.add('open');},
-
-  async submitAddAllocCat(){
-    const name=document.getElementById('newcat-name').value.trim().toUpperCase();
-    const pct=parseFloat(document.getElementById('newcat-pct').value)||5;
-    if(!name)return toast('กรุณากรอกชื่อประเภท','err');
-    if(State.allocs[name]!==undefined)return toast(`"${name}" มีอยู่แล้ว`,'err');
-    App.setLoading('กำลังเพิ่มคอลัมน์...');
-    try{await App.addManageCategory(name);State.allocs[name]=pct;UI.closeModal('modal-addcat');UI.renderAllocConfig();UI.drawPie();toast(`เพิ่ม "${name}" สำเร็จ`);}
-    catch(e){toast('Error: '+e.message,'err');}
-    App.setLoading(null);
-  },
-
-  async saveManage(){
-    if(!State.calcResult)return;
-    const net=State.calcResult.netTotal,cats=Object.keys(State.allocs);
-    const row={'PERIOD':State.mgPeriod,'NET MONEY SHIFT':State.calcResult.totalShiftIncome,'NET SALARY':net};
-    let allocated=0;
-    cats.forEach(k=>{const a=net*(State.allocs[k]||0)/100;row[k]=a;allocated+=a;});
-    row['REMAINING']=net-allocated;
-    App.setLoading('กำลังบันทึก...');
-    try{await App.saveManageRow(row);toast('บันทึกลง MANAGE Sheet แล้ว ✅');UI.renderManageHistory();}
-    catch(e){toast('Error: '+e.message,'err');}
-    App.setLoading(null);
-  },
-
-  renderManageHistory(){
-    const tb=document.getElementById('mgn-history-tbody');
-    if(!State.manageData.length){tb.innerHTML='<tr><td colspan="5" style="text-align:center;padding:28px" class="t-dm">ยังไม่มีประวัติ</td></tr>';return;}
-    tb.innerHTML=State.manageData.map(m=>`<tr>
-      <td class="fw7" style="white-space:nowrap">${m['PERIOD']||''}</td>
-      <td class="mono t-gr">${fmt(m['NET MONEY SHIFT'])}</td>
-      <td class="mono t-ac">${fmt(m['NET SALARY'])}</td>
-      <td class="mono" style="color:#38bdf8">${fmt(m['SAVING'])}</td>
-      <td class="mono t-gr">${fmt(m['REMAINING'])}</td>
-    </tr>`).join('');
-  },
-
-  drawPie(){
-    const canvas=document.getElementById('pieCanvas');if(!canvas)return;
-    const ctx=canvas.getContext('2d');
-    const net=State.calcResult?State.calcResult.netTotal:0,cats=Object.keys(State.allocs);
-    const rem=net-cats.reduce((s,k)=>s+net*(State.allocs[k]||0)/100,0);
-    const slices=[];
-    cats.forEach(name=>{const pct=State.allocs[name]||0;if(pct>0)slices.push({name,pct,color:catColor(name)});});
-    if(rem>0&&net>0)slices.push({name:'REMAINING',pct:(rem/net)*100,color:'#34d399'});
-    const total=slices.reduce((s,sl)=>s+sl.pct,0);if(total<=0){ctx.clearRect(0,0,200,200);return;}
-    const dpr=window.devicePixelRatio||1,size=200;
-    canvas.width=size*dpr;canvas.height=size*dpr;canvas.style.width=size+'px';canvas.style.height=size+'px';
-    ctx.scale(dpr,dpr);
-    const cx=size/2,cy=size/2,r=88,inner=46;let angle=-Math.PI/2;
-    ctx.clearRect(0,0,size,size);
-    slices.forEach(sl=>{
-      const sw=(sl.pct/total)*Math.PI*2;
-      ctx.beginPath();ctx.moveTo(cx,cy);ctx.arc(cx,cy,r,angle,angle+sw);ctx.closePath();
-      ctx.fillStyle=sl.color;ctx.fill();ctx.strokeStyle='#0f1623';ctx.lineWidth=2;ctx.stroke();
-      angle+=sw;
-    });
-    ctx.beginPath();ctx.arc(cx,cy,inner,0,Math.PI*2);ctx.fillStyle='#0f1623';ctx.fill();
-    if(net>0){
-      ctx.textAlign='center';ctx.textBaseline='middle';
-      ctx.font='600 13px Sarabun';ctx.fillStyle='#94a3b8';ctx.fillText('รวม',cx,cy-10);
-      ctx.font='700 14px Space Mono';ctx.fillStyle='#38bdf8';ctx.fillText(fmtInt(Math.round(net)),cx,cy+10);
-    }
-    const leg=document.getElementById('pie-legend');
-    if(leg)leg.innerHTML=slices.map(sl=>{
-      const amt=net>0?(net*sl.pct/total):0;
-      return `<div class="pie-leg-item"><div class="pie-leg-dot" style="background:${sl.color}"></div><span class="pie-leg-name">${sl.name}</span><span class="pie-leg-pct">${sl.pct.toFixed(1)}%  ฿${fmt(amt)}</span></div>`;
-    }).join('');
-  },
-
+  async submitAddAllocCat(){const name=document.getElementById('newcat-name').value.trim().toUpperCase(),pct=parseFloat(document.getElementById('newcat-pct').value)||5;if(!name)return toast('กรุณากรอกชื่อประเภท','err');if(State.allocs[name]!==undefined)return toast(`"${name}" มีอยู่แล้ว`,'err');App.setLoading('กำลังเพิ่มคอลัมน์...');try{await App.addManageCategory(name);State.allocs[name]=pct;UI.closeModal('modal-addcat');UI.renderAllocConfig();UI.drawPie();toast(`เพิ่ม "${name}" สำเร็จ`);}catch(e){toast('Error: '+e.message,'err');}App.setLoading(null);},
+  async saveManage(){if(!State.calcResult)return;const net=State.calcResult.netTotal,cats=Object.keys(State.allocs),row={'PERIOD':State.mgPeriod,'NET MONEY SHIFT':State.calcResult.totalShiftIncome,'NET SALARY':net};let allocated=0;cats.forEach(k=>{const a=net*(State.allocs[k]||0)/100;row[k]=a;allocated+=a;});row['REMAINING']=net-allocated;App.setLoading('กำลังบันทึก...');try{await App.saveManageRow(row);toast('บันทึกลง MANAGE Sheet แล้ว ✅');UI.renderManageHistory();}catch(e){toast('Error: '+e.message,'err');}App.setLoading(null);},
+  renderManageHistory(){const tb=document.getElementById('mgn-history-tbody');if(!State.manageData.length){tb.innerHTML='<tr><td colspan="5" style="text-align:center;padding:28px" class="t-dm">ยังไม่มีประวัติ</td></tr>';return;}tb.innerHTML=State.manageData.map(m=>`<tr><td class="fw7" style="white-space:nowrap">${m['PERIOD']||''}</td><td class="mono t-gr">${fmt(m['NET MONEY SHIFT'])}</td><td class="mono t-ac">${fmt(m['NET SALARY'])}</td><td class="mono" style="color:#38bdf8">${fmt(m['SAVING'])}</td><td class="mono t-gr">${fmt(m['REMAINING'])}</td></tr>`).join('');},
+  drawPie(){const canvas=document.getElementById('pieCanvas');if(!canvas)return;const ctx=canvas.getContext('2d');const net=State.calcResult?State.calcResult.netTotal:0,cats=Object.keys(State.allocs),rem=net-cats.reduce((s,k)=>s+net*(State.allocs[k]||0)/100,0);const slices=[];cats.forEach(name=>{const pct=State.allocs[name]||0;if(pct>0)slices.push({name,pct,color:catColor(name)});});if(rem>0&&net>0)slices.push({name:'REMAINING',pct:(rem/net)*100,color:'#34d399'});const total=slices.reduce((s,sl)=>s+sl.pct,0);if(total<=0){ctx.clearRect(0,0,200,200);return;}const dpr=window.devicePixelRatio||1,size=200;canvas.width=size*dpr;canvas.height=size*dpr;canvas.style.width=size+'px';canvas.style.height=size+'px';ctx.scale(dpr,dpr);const cx=size/2,cy=size/2,r=88,inner=46;let angle=-Math.PI/2;ctx.clearRect(0,0,size,size);slices.forEach(sl=>{const sw=(sl.pct/total)*Math.PI*2;ctx.beginPath();ctx.moveTo(cx,cy);ctx.arc(cx,cy,r,angle,angle+sw);ctx.closePath();ctx.fillStyle=sl.color;ctx.fill();ctx.strokeStyle='#0f1623';ctx.lineWidth=2;ctx.stroke();angle+=sw;});ctx.beginPath();ctx.arc(cx,cy,inner,0,Math.PI*2);ctx.fillStyle='#0f1623';ctx.fill();if(net>0){ctx.textAlign='center';ctx.textBaseline='middle';ctx.font='600 13px Sarabun';ctx.fillStyle='#94a3b8';ctx.fillText('รวม',cx,cy-10);ctx.font='700 14px Space Mono';ctx.fillStyle='#38bdf8';ctx.fillText(fmtInt(Math.round(net)),cx,cy+10);}const leg=document.getElementById('pie-legend');if(leg)leg.innerHTML=slices.map(sl=>{const amt=net>0?(net*sl.pct/total):0;return`<div class="pie-leg-item"><div class="pie-leg-dot" style="background:${sl.color}"></div><span class="pie-leg-name">${sl.name}</span><span class="pie-leg-pct">${sl.pct.toFixed(1)}%  ฿${fmt(amt)}</span></div>`;}).join('');},
   closeModal(id){document.getElementById(id).classList.remove('open');},
 };
 
-document.querySelectorAll('.mol').forEach(el=>{
-  el.addEventListener('click',function(e){if(e.target===this)this.classList.remove('open');});
-});
-
-// BOOT
-window.addEventListener('DOMContentLoaded', ()=>App.init());
+document.querySelectorAll('.mol').forEach(el=>{el.addEventListener('click',function(e){if(e.target===this)this.classList.remove('open');});});
+window.addEventListener('DOMContentLoaded',()=>App.init());
 </script>
 </body>
 </html>
