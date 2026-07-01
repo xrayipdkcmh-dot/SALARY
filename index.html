@@ -531,8 +531,10 @@ async function deletePeriodAll(period){
   try{
     var toDelete=S.records.filter(function(r){return r.PERIOD===period;}).map(function(r){return r._row;});
     await gasCall({action:'deleteRows',sheet:'RECORD',rowIndexes:toDelete});
-    // แก้ 3: optimistic update — กรองออกจาก state โดยตรง ไม่ read ซ้ำ
-    S.records=S.records.filter(function(r){return r.PERIOD!==period;});
+    // ต้อง re-read เพื่อให้ _row ของ record ที่เหลือถูกต้อง
+    // (ถ้าแค่ filter ค่า _row จะ stale เพราะแถวใน Sheet เลื่อนขึ้นหลังลบ)
+    var rows=await gasCall({action:'read',sheet:'RECORD'});
+    S.records=parseRecords(rows);
     if(S.period===period){S.period=null;document.getElementById('rec-period-lbl').textContent='';}
     toast('ลบ Period "'+period+'" สำเร็จ','ok');
     renderPeriods();renderRecTable(S.period);renderSummarySection(S.period);
